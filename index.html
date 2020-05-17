@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO List</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/d46ed99af6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-input-container">
+        <i class="far fa-file-alt icon"></i>
+        <input
+          type="text"
+          name="todo"
+          id="todo"
+          class="todo-input"
+          placeholder="Type your todo here..."
+        />
+        <i class="fas fa-plus icon fa-3x addTodo" id="addTodo"></i>
+      </div>
+      <div class="todo-info-container">
+        <span class="complete-all">
+          <i class="fas fa-check"></i>
+          Complete All Tasks
+        </span>
+        <span class="clear-completed">
+          Clear Completed
+        </span>
+      </div>
+      <div class="list-container">
+        <ul class="todos" id="list">
+          <li class="list-item">
+            <i class="far fa-circle check mr-10px isCompleted"></i>
+            <span class="li-text">Add HTMl </span>
+            <i class="far fa-times-circle delete"></i>
+          </li>
+          <li class="list-item">
+            <i class="far fa-circle check mr-10px isCompleted"></i>
+            <span class="li-text">Add CSS </span>
+            <i class="far fa-times-circle delete"></i>
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="list-info">
+        <span class="complete-all">
+            <i class="fas fa-check"></i>
+            Complete All Tasks
+          </span>
+          <span class="clear-completed">
+            Clear Completed
+          </span>
+      </div> -->
+    </div>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
