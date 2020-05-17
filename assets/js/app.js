@@ -1,70 +1,74 @@
-// var input = document.getElementById("todo");
-// var list = document.getElementById("list");
 
-// // Adding the todo to list
+let todosItems = [];
 
-// input.addEventListener('keypress',(event)=>{
-//     if(event.which === 13){
-//         let todoText = input.value;
-//         input.value="";
-//         let li = document.createElement("li");
-//         let span = document.createElement("span");
-//         let liText = document.createTextNode(`${todoText}`);
-//         let circle = document.createElement("i");
-//         let remove = document.createElement("i");
+function addTodo(text) {
+    const todo = {
+        text,
+        checked: false,
+        id: Date.now(),
+    };
 
-//         circle.classList.add('far','fa-circle','mr-10px','check','isCompleted');
-//         remove.classList.add('far','fa-times-circle','delete')
-//         // Add circle first
-//         li.appendChild(circle)
+    todosItems.push(todo);
 
-//         // then text
-//         span.appendChild(liText);
-//         span.classList.add('li-text');
+    const list = document.querySelector("#list");
 
-        
-//         // add the list
+    list.insertAdjacentHTML('beforeend',
+        `
+    <li class="list-item" data-key="${todo.id}">
+            <i class="far fa-circle check mr-10px completed" id=${todo.id}></i>
+            <span class="li-text">${todo.text}</span>
+            <i class="far fa-times-circle delete"></i>
+          </li>
+    `)
+}
 
-//         li.appendChild(span);
 
-//         //append delete
-//         li.appendChild(remove);
-//         li.classList.add('list-item');
-//         list.appendChild(li);
-//     }
-// });
+var input = document.getElementById("todo");
 
-// // handling the plus icon
+// Adding the todo to list
 
-// var addTodo = document.getElementById('addTodo');
+input.addEventListener('keypress', (event) => {
 
-// addTodo.addEventListener('click',()=>{
-//         let todoText = input.value;
-//         input.value="";
-//         let li = document.createElement("li");
-//         let span = document.createElement("span");
-//         let liText = document.createTextNode(`${todoText}`);
-//         let circle = document.createElement("i");
-//         let remove = document.createElement("i");
+    if (event.keyCode === 13) {
+        let todoText = input.value.trim();
+        addTodo(todoText);
+        input.value = "";
+    }
 
-//         circle.classList.add('far','fa-circle','mr-10px','check');
-//         remove.classList.add('far','fa-times-circle','delete')
-//         // Add circle first
-//         li.appendChild(circle)
+});
 
-//         // then text
-//         span.appendChild(liText);
-//         span.classList.add('li-text');
+const list = document.querySelector("#list");
 
-        
-//         // add the list
+list.addEventListener('click', function (event) {
+    if (event.target.classList.contains('completed')) {
+        const itemKey = event.target.parentElement.dataset.key;
+        toggleDone(itemKey);
+    }
 
-//         li.appendChild(span);
+    if(event.target.classList.contains('delete')){
+        const itemKey = event.target.parentElement.dataset.key;
+        deleteTODO(itemKey);
+    }
 
-//         //append delete
-//         li.appendChild(remove);
-//         li.classList.add('list-item');
-//         list.appendChild(li);
-// });
+});
 
+function toggleDone(key) {
+    const index = todosItems.findIndex(item => item.id === Number(key));
+    todosItems[index].checked = !todosItems[index].checked;
+
+    console.log(key);
+    const item = document.getElementById(`${key}`);
+
+    if (todosItems[index].checked) {
+        item.classList.add('fas',);
+    } else {
+        item.classList.remove('fas');
+    }
+}
+
+function deleteTODO(key){
+    todosItems = todosItems.filter(item => item.id !== Number(key));
+    const item = document.querySelector(`[data-key='${key}']`);
+    item.remove();
+}
 
