@@ -1,6 +1,8 @@
 
 let todosItems = [];
 
+
+
 function addTodo(text) {
     const todo = {
         text,
@@ -20,6 +22,7 @@ function addTodo(text) {
             <i class="far fa-times-circle delete"></i>
           </li>
     `)
+    
 }
 
 
@@ -34,7 +37,6 @@ input.addEventListener('keypress', (event) => {
         addTodo(todoText);
         input.value = "";
     }
-
 });
 
 const list = document.querySelector("#list");
@@ -56,7 +58,6 @@ function toggleDone(key) {
     const index = todosItems.findIndex(item => item.id === Number(key));
     todosItems[index].checked = !todosItems[index].checked;
 
-    console.log(key);
     const item = document.getElementById(`${key}`);
 
     if (todosItems[index].checked) {
@@ -70,5 +71,6 @@ function deleteTODO(key){
     todosItems = todosItems.filter(item => item.id !== Number(key));
     const item = document.querySelector(`[data-key='${key}']`);
     item.remove();
+
 }
 

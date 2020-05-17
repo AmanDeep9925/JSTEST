@@ -58,11 +58,13 @@ body{
     font-size: 0.8rem;
     color: white;
     flex-grow: 1;
+    cursor: pointer;
 }
 
 .clear-completed{
     font-size:0.8rem;
     color: white;
+    cursor: pointer;
 }
 
 .list-container{
@@ -103,5 +105,5 @@ li:hover .delete{
 }
 
 .checked{
-    
+
 }
