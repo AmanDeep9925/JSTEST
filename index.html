@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TO DO List</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script
-      src="https://kit.fontawesome.com/d46ed99af6.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="todo-input-container">
-        <i class="far fa-file-alt icon"></i>
-        <input
-          type="text"
-          name="todo"
-          id="todo"
-          class="todo-input"
-          placeholder="Type your todo here..."
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To Do App</title>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+            integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+            crossorigin="anonymous"
         />
-        <i class="fas fa-plus icon fa-3x addTodo" id="addTodo"></i>
-      </div>
-      <div class="todo-info-container">
-        <span class="complete-all">
-          <i class="fas fa-check"></i>
-          Complete All Tasks
-        </span>
-        <span class="clear-completed">
-          Clear Completed
-        </span>
-      </div>
-      <div class="list-container">
-        <ul class="todos" id="list">
-        </ul>
-      </div>
-      <div class="list-info">
-        <!-- <p class="complete-all">
-            <span id="tasks">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- * To DO App -->
 
-            </span>
-            tasks left
-        </p> -->
-          <!-- <span class="clear-completed">
-            Clear Completed
-          </span> -->
-      </div>
-    </div>
-    <script src="assets/js/app.js"></script>
-  </body>
+        <div class="container">
+            <div class="input-container" id="input-container">
+                <div class="file-icon">
+                    <i class="far fa-file-alt"></i>
+                </div>
+
+                <input
+                    type="text"
+                    id="todo-input"
+                    class="todo-input"
+                    placeholder="Add Todo"
+                />
+
+                <div class="add-icon" id="add-todo">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
+
+            <div class="task-status" id="task-status">
+                <span class="all-tasks" id="all-tasks">
+                    <i class="fas fa-check-double selected"></i>
+                    Complete all tasks
+                </span>
+                <span
+                    class="clear-tasks not-selected"
+                    id="clear-complete-tasks"
+                >
+                    Clear completed
+                </span>
+            </div>
+
+            <ul id="tasks-list">
+                
+            </ul>
+
+            <div class="footer" id="footer">
+                <div class="taks-count">
+                    <p><strong id="task-count">3 </strong>tasks left</p>
+                </div>
+                <div class="task-list">
+                    <p class="selected" id="all">All</p>
+                    <p class="not-selected" id="uncompleted">Uncompleted</p>
+                    <p class="not-selected" id="completed">Completed</p>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
 </html>
